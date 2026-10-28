@@ -1,516 +1,703 @@
-https://soifon0820-png.github.io/sean/
-      color: #3b2e27;
-      letter-spacing: 0.1em;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>早安美芝城 · 傳統早餐 | 古早味新滋味</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .logo i {
-      color: #b17b5a;
-      font-size: 1.7rem;
+    :root {
+      --primary: #f5b041;
+      --primary-dark: #e09e2e;
+      --secondary: #e67e22;
+      --bg-cream: #fff9f2;
+      --text-dark: #3e2e1f;
+      --text-mid: #6b5a4a;
+      --text-light: #9c8b7a;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(230, 126, 34, 0.08);
+      --radius: 20px;
+    }
+
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ===== 舊報紙質感背景 ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(245, 176, 65, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(230, 126, 34, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== 導覽列 ===== */
+    .navbar {
+      background: rgba(255, 249, 242, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 0.8rem 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+      border-bottom: 3px solid var(--primary);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.08em;
+    }
+
+    .logo .logo-icon {
+      background: var(--primary);
+      color: var(--white);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(245, 176, 65, 0.4);
+    }
+
+    .logo small {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: 0.2em;
+      display: block;
+      line-height: 1;
+      margin-top: 2px;
     }
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #3b2e27;
+      color: var(--text-mid);
       font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.2s ease;
-      letter-spacing: 0.05em;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
       position: relative;
+      padding-bottom: 4px;
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -6px;
+      bottom: 0;
       left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #b17b5a;
-      transition: width 0.25s ease;
+      width: 0;
+      height: 2.5px;
+      background: var(--primary);
+      transition: width 0.25s;
+      border-radius: 2px;
     }
 
     .nav-links a:hover {
-      color: #b17b5a;
+      color: var(--text-dark);
     }
 
     .nav-links a:hover::after {
       width: 100%;
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 1rem;
+    .nav-cta {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 0.5rem 1.5rem !important;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: all 0.2s !important;
+      box-shadow: 0 4px 12px rgba(245, 176, 65, 0.3);
     }
 
-    .nav-actions a {
-      color: #3b2e27;
-      font-size: 1.2rem;
-      transition: color 0.2s;
+    .nav-cta:hover {
+      background: var(--primary-dark) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(245, 176, 65, 0.4);
     }
 
-    .nav-actions a:hover {
-      color: #b17b5a;
+    .nav-cta::after {
+      display: none !important;
     }
 
-    /* 主視覺 Hero */
+    /* ===== 主視覺 ===== */
     .hero {
-      min-height: 85vh;
-      background: linear-gradient(105deg, #2b1e18 0%, #3f2e25 55%, #a4816b 100%);
+      padding: 3rem 5% 2.5rem;
       display: flex;
       align-items: center;
-      padding: 0 5%;
+      justify-content: space-between;
+      gap: 3rem;
       position: relative;
-      overflow: hidden;
+      z-index: 1;
     }
 
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 50%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
-      opacity: 0.25;
-      mask-image: linear-gradient(to left, rgba(0,0,0,0.6), transparent);
-      pointer-events: none;
+    .hero-text {
+      flex: 1 1 500px;
     }
 
-    .hero-content {
-      max-width: 700px;
-      color: #fefcf8;
-      position: relative;
-      z-index: 2;
-      padding: 3rem 0;
-    }
-
-    .hero-content .subhead {
-      font-size: 1rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: #dbc4b5;
-      margin-bottom: 1.5rem;
-      font-weight: 400;
-    }
-
-    .hero-content h1 {
-      font-size: 4.2rem;
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-      color: #fefcf8;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      max-width: 550px;
-      margin-bottom: 2.5rem;
-      color: #efe2d8;
-      font-weight: 300;
-      line-height: 1.8;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #b17b5a;
-      color: #fff;
-      padding: 1rem 2.8rem;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 176, 65, 0.12);
+      color: var(--secondary);
+      padding: 0.4rem 1.2rem;
       border-radius: 50px;
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .btn:hover {
-      background-color: #9e6a49;
-      transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid #dbc4b5;
-      margin-left: 1.2rem;
-      color: #fefcf8;
-      box-shadow: none;
-    }
-
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: #f0d9cc;
-      transform: translateY(-3px);
-    }
-
-    /* 通用區塊樣式 */
-    section {
-      padding: 5rem 5%;
-    }
-
-    .section-title {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #2e241f;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: #b17b5a;
-      margin-top: 0.8rem;
-    }
-
-    .section-subtitle {
-      color: #8b7a6b;
-      max-width: 600px;
-      margin-bottom: 3rem;
-      font-size: 1.05rem;
-      font-weight: 300;
-    }
-
-    /* 菜單精選 */
-    .menu-highlights {
-      background-color: #fefcf8;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2rem;
-    }
-
-    .menu-card {
-      background: #fff;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 1px solid #f0e8e0;
-    }
-
-    .menu-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 30px 40px -15px rgba(0, 0, 0, 0.15);
-    }
-
-    .menu-img {
-      height: 220px;
-      background-size: cover;
-      background-position: center;
-      transition: transform 0.5s;
-    }
-
-    .menu-card:hover .menu-img {
-      transform: scale(1.02);
-    }
-
-    .menu-info {
-      padding: 1.8rem 1.5rem 2rem;
-    }
-
-    .menu-info h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #2e241f;
-    }
-
-    .menu-info p {
-      color: #6b5d52;
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-      line-height: 1.6;
-    }
-
-    .price {
+      font-size: 0.85rem;
       font-weight: 600;
-      color: #b17b5a;
-      font-size: 1.3rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(245, 176, 65, 0.25);
+    }
+
+    .hero-text h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 3.4rem;
+      line-height: 1.25;
+      margin-bottom: 1.2rem;
+      color: var(--text-dark);
       letter-spacing: 0.02em;
     }
 
-    .price i {
-      font-size: 0.9rem;
-      margin-right: 4px;
-      color: #b17b5a;
+    .hero-text h1 .highlight {
+      color: var(--secondary);
+      position: relative;
+      display: inline-block;
     }
 
-    /* 關於我們 */
-    .about-section {
-      background-color: #f8f2ec;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 4rem;
+    .hero-text h1 .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: rgba(245, 176, 65, 0.25);
+      z-index: -1;
+      border-radius: 4px;
     }
 
-    .about-text {
-      flex: 1 1 350px;
-    }
-
-    .about-text h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-text p {
-      margin-bottom: 1.5rem;
-      color: #52463d;
+    .hero-text p {
       font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 480px;
+      margin-bottom: 2rem;
+      font-weight: 300;
       line-height: 1.9;
     }
 
-    .about-img {
-      flex: 1 1 350px;
-      height: 400px;
-      background: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=1470&auto=format&fit=crop') center/cover no-repeat;
-      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-      box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.08);
-      border: 8px solid #fff;
-    }
-
-    .chef-signature {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.4rem;
-      color: #b17b5a;
-      margin-top: 2rem;
-      font-style: italic;
-    }
-
-    /* 顧客迴響 */
-    .testimonials {
-      background: #fff;
-      text-align: center;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-
-    .testimonial-card {
-      background: #faf7f2;
-      padding: 2.5rem 1.8rem;
-      border-radius: 24px;
-      border: 1px solid #eee6dd;
-      transition: all 0.2s;
-    }
-
-    .testimonial-card i {
-      color: #b17b5a;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .testimonial-card p {
-      font-style: italic;
-      color: #4d3f36;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      line-height: 1.8;
-    }
-
-    .testimonial-card .name {
-      font-weight: 600;
-      color: #2e241f;
-      letter-spacing: 0.04em;
-    }
-
-    .stars {
-      color: #d4a373;
-      font-size: 0.9rem;
-      margin-top: 0.4rem;
-    }
-
-    /* 聯絡與預約 */
-    .contact-section {
-      background: #2b1e18;
-      color: #fefcf8;
+    .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 3rem;
-      padding: 4rem 5%;
+      gap: 1rem;
     }
 
-    .contact-info {
-      flex: 1 1 300px;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.9rem 2.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-family: 'Noto Sans TC', sans-serif;
     }
 
-    .contact-info h2 {
-      color: #fefcf8;
-      margin-bottom: 2rem;
-      font-size: 2.2rem;
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(245, 176, 65, 0.35);
     }
 
-    .contact-info h2::after {
-      background-color: #b17b5a;
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(245, 176, 65, 0.4);
     }
 
-    .contact-detail {
+    .btn-secondary {
+      background: transparent;
+      color: var(--text-mid);
+      border: 2px solid #e8ddd2;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      color: var(--secondary);
+      background: rgba(245, 176, 65, 0.05);
+    }
+
+    /* 視覺裝飾 */
+    .hero-visual {
+      flex: 1 1 350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-visual .plate {
+      width: 320px;
+      height: 320px;
+      background: linear-gradient(135deg, #fef5e7, #fdebd0);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      color: #e2d6cc;
+      justify-content: center;
+      box-shadow: 0 20px 50px rgba(230, 126, 34, 0.12), inset 0 -10px 20px rgba(255, 255, 255, 0.6);
+      position: relative;
+      border: 3px dashed rgba(245, 176, 65, 0.3);
+      animation: float 6s ease-in-out infinite;
     }
 
-    .contact-detail i {
-      width: 30px;
-      font-size: 1.3rem;
-      color: #b17b5a;
+    .plate i {
+      font-size: 7rem;
+      color: var(--primary);
+      opacity: 0.9;
+      filter: drop-shadow(0 8px 16px rgba(245, 176, 65, 0.3));
     }
 
-    .hours {
-      margin-top: 2.5rem;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
-    .hours p {
-      margin-bottom: 0.5rem;
-      color: #cfc1b6;
+    .hero-visual .stamp {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: var(--white);
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      transform: rotate(8deg);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
     }
 
-    .hours span {
-      color: #fefcf8;
-      font-weight: 500;
+    /* ===== 菜單區塊 ===== */
+    .menu-section {
+      padding: 4rem 5% 5rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .reservation {
-      flex: 1 1 300px;
-      background: #3f2e25;
-      padding: 2.5rem;
-      border-radius: 40px 40px 40px 12px;
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.3);
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
 
-    .reservation h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #fefcf8;
+    .section-header h2 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 2.2rem;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
     }
 
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
-
-    .form-group input,
-    .form-group select {
-      width: 100%;
-      padding: 1rem 1.2rem;
-      border-radius: 60px;
-      border: none;
-      background: #faf7f2;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      color: #2e241f;
-      outline: none;
-      transition: box-shadow 0.2s;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus {
-      box-shadow: 0 0 0 3px rgba(177, 123, 90, 0.4);
-    }
-
-    .reservation .btn {
-      width: 100%;
-      background: #b17b5a;
-      border: none;
+    .section-header h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: var(--primary);
       margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+
+    .section-header p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      font-weight: 300;
+    }
+
+    /* 分類篩選 */
+    .menu-filter {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      border-radius: 50px;
+      border: 1.5px solid #e8ddd2;
+      background: var(--white);
+      color: var(--text-mid);
+      font-family: 'Noto Sans TC', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
       cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.02em;
+    }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      color: var(--secondary);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+      box-shadow: 0 6px 16px rgba(245, 176, 65, 0.3);
+    }
+
+    /* 菜單卡片網格 */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      border: 1px solid #faf0e6;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -10px rgba(230, 126, 34, 0.15);
+    }
+
+    .menu-card:hover::before {
+      opacity: 1;
+    }
+
+    .menu-card .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+    }
+
+    .menu-card .item-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
+    }
+
+    .menu-card .item-price {
+      font-weight: 700;
+      color: var(--secondary);
+      font-size: 1.15rem;
+      white-space: nowrap;
+      background: rgba(245, 176, 65, 0.1);
+      padding: 0.2rem 0.8rem;
+      border-radius: 50px;
+      letter-spacing: 0.02em;
+    }
+
+    .menu-card .item-desc {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-bottom: 1rem;
+      flex-grow: 1;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .menu-card .item-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.8rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 50px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      background: #fef5e7;
+      color: var(--text-mid);
+      border: 1px solid #fae5c8;
+    }
+
+    .tag.hot {
+      background: #fde8d0;
+      color: #c96b1e;
+      border-color: #f9d5b0;
+    }
+
+    .tag.veg {
+      background: #e8f5e9;
+      color: #2e7d32;
+      border-color: #c8e6c9;
+    }
+
+    .tag.new {
+      background: #fff3e0;
+      color: #bf360c;
+      border-color: #ffe0b2;
+    }
+
+    /* 隱藏不符合篩選條件的卡片 */
+    .menu-card.hidden {
+      display: none;
+    }
+
+    /* ===== 營業資訊 ===== */
+    .info-section {
+      background: var(--white);
+      padding: 4rem 5%;
+      margin: 2rem 0 0;
+      border-top: 1px solid #fae5c8;
+      border-bottom: 1px solid #fae5c8;
+      position: relative;
+      z-index: 1;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .info-item .icon-box {
+      width: 52px;
+      height: 52px;
+      background: rgba(245, 176, 65, 0.12);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--secondary);
+      font-size: 1.3rem;
+    }
+
+    .info-item h4 {
       font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.02em;
     }
 
-    .reservation .btn:hover {
-      background: #9e6a49;
+    .info-item p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.7;
     }
 
-    /* 頁腳 */
+    /* ===== 頁腳 ===== */
     footer {
-      background: #1f1612;
-      color: #a39286;
-      padding: 2rem 5%;
+      background: #3e2e1f;
+      color: #c9b8a8;
+      padding: 2.5rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.9rem;
-      border-top: 1px solid #3f2e25;
+      gap: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .footer-social i {
-      color: #a39286;
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Noto Serif TC', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fef9f2;
+    }
+
+    .footer-left i {
+      color: var(--primary);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .footer-social a {
+      color: #c9b8a8;
       margin-left: 1.2rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: color 0.2s;
     }
 
-    .footer-social i:hover {
-      color: #b17b5a;
+    .footer-social a:hover {
+      color: var(--primary);
     }
 
-    /* 響應式 */
-    @media (max-width: 850px) {
-      .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-        padding: 1rem 5%;
+    /* ===== 響應式 ===== */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.5rem 5% 2rem;
       }
 
-      .nav-links {
-        gap: 1.5rem;
-        order: 3;
-        width: 100%;
+      .hero-text h1 {
+        font-size: 2.6rem;
+      }
+
+      .hero-text p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
         justify-content: center;
       }
 
-      .hero-content h1 {
-        font-size: 3rem;
+      .hero-visual {
+        order: -1;
       }
 
-      .hero-content p {
+      .hero-visual .plate {
+        width: 240px;
+        height: 240px;
+      }
+
+      .plate i {
+        font-size: 5rem;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        padding: 0.8rem 5%;
+      }
+
+      .nav-links {
+        gap: 1.2rem;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-header h2 {
+        font-size: 1.8rem;
+      }
+
+      .info-section {
+        padding: 3rem 5%;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text p {
+        font-size: 0.95rem;
+      }
+
+      .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 0.9rem;
+      }
+
+      .logo {
+        font-size: 1.3rem;
+      }
+
+      .logo .logo-icon {
+        width: 36px;
+        height: 36px;
         font-size: 1rem;
       }
 
-      .btn-outline {
-        margin-left: 0;
-        margin-top: 1rem;
-      }
-
-      .hero .btn {
-        display: block;
-        width: fit-content;
-      }
-
-      .about-img {
-        height: 300px;
-        border-radius: 30px;
-      }
-
-      .contact-section {
-        flex-direction: column;
-      }
-
-      .reservation {
-        border-radius: 30px;
+      .menu-grid {
+        grid-template-columns: 1fr;
       }
 
       footer {
@@ -518,217 +705,293 @@ https://soifon0820-png.github.io/sean/
         text-align: center;
       }
 
-      .footer-social i {
+      .footer-social a {
         margin: 0 0.6rem;
       }
-    }
 
-    @media (max-width: 480px) {
-      .hero-content h1 {
-        font-size: 2.3rem;
+      .hero-visual .plate {
+        width: 200px;
+        height: 200px;
       }
 
-      .section-title {
-        font-size: 1.9rem;
-      }
-
-      .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
-      }
-
-      .logo {
-        font-size: 1.4rem;
+      .plate i {
+        font-size: 4rem;
       }
     }
   </style>
 </head>
 <body>
-  <!-- 導覽列 -->
+  <!-- ===== 導覽列 ===== -->
   <nav class="navbar">
     <div class="logo">
-      <i class="fas fa-utensils"></i> 饗宴
+      <div class="logo-icon">
+        <i class="fas fa-mug-hot"></i>
+      </div>
+      <div>
+        早安美芝城
+        <small>古早味 · 新滋味</small>
+      </div>
     </div>
     <ul class="nav-links">
-      <li><a href="#home">首頁</a></li>
       <li><a href="#menu">菜單</a></li>
-      <li><a href="#about">關於我們</a></li>
-      <li><a href="#contact">聯絡預約</a></li>
+      <li><a href="#info">營業資訊</a></li>
+      <li><a href="#menu" class="nav-cta"><i class="fas fa-phone-alt"></i> 預約外帶</a></li>
     </ul>
-    <div class="nav-actions">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
   </nav>
 
-  <!-- 主視覺 -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="subhead">SINCE 2016 · 手作料理</div>
-      <h1>品嚐溫度<br>遇見美好</h1>
-      <p>嚴選在地食材，融合傳統與創新的烹調手法，每一道菜都是對味蕾的誠摯邀請。</p>
+  <!-- ===== 主視覺 ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> 在地經營 20 年 · 街坊的好味道
+      </div>
+      <h1>
+        每天的<br>
+        <span class="highlight">第一口幸福</span>
+      </h1>
+      <p>
+        從傳統蛋餅到特調奶茶，每一份餐點都承載著老闆的用心與堅持。
+        全新菜單上線，快來品嚐記憶中的古早味！
+      </p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-primary">
+          <i class="fas fa-utensils"></i> 瀏覽菜單
+        </a>
+        <a href="#info" class="btn btn-secondary">
+          <i class="fas fa-map-marker-alt"></i> 店面位置
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stamp">
+        <i class="fas fa-fire"></i> 人氣推薦
+      </div>
+      <div class="plate">
+        <i class="fas fa-egg"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 菜單區塊 ===== -->
+  <section class="menu-section" id="menu">
+    <div class="section-header">
       <div>
-        <a href="#contact" class="btn">預約座位</a>
-        <a href="#menu" class="btn btn-outline">瀏覽菜單</a>
+        <h2>今日菜單</h2>
+        <p>全品項現點現做，請耐心等候美好滋味</p>
+      </div>
+      <div class="menu-filter" id="filterContainer">
+        <button class="filter-btn active" data-category="all">全部</button>
+        <button class="filter-btn" data-category="主食">主食</button>
+        <button class="filter-btn" data-category="蛋餅">蛋餅</button>
+        <button class="filter-btn" data-category="點心">點心</button>
+        <button class="filter-btn" data-category="飲料">飲料</button>
+      </div>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- 菜品資料由 JS 動態產生 -->
+    </div>
+  </section>
+
+  <!-- ===== 營業資訊 ===== -->
+  <section class="info-section" id="info">
+    <div class="info-grid">
+      <div class="info-item">
+        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+        <div>
+          <h4>店面地址</h4>
+          <p>台北市文山區木新路三段 120 號<br>（木新市場旁，7-11 斜對面）</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="icon-box"><i class="fas fa-clock"></i></div>
+        <div>
+          <h4>營業時間</h4>
+          <p>週一至週日<br>05:30 - 13:00<br>（每月第一個週一公休）</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+        <div>
+          <h4>訂餐專線</h4>
+          <p>(02) 2937-5678<br>歡迎提前來電預訂，節省等候時間</p>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="icon-box"><i class="fas fa-hand-holding-heart"></i></div>
+        <div>
+          <h4>老闆的話</h4>
+          <p>「謝謝街坊鄰居這麼多年的照顧，菜單換新但人情味不變，歡迎常來坐！」</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- 菜單精選 -->
-  <section class="menu-highlights" id="menu">
-    <h2 class="section-title">主廚精選</h2>
-    <p class="section-subtitle">每一季更新菜單，嚴選當令食材，呈現最純粹的風味。</p>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=1480&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <h3>炙燒和牛沙拉</h3>
-          <p>頂級和牛炙燒後搭配季節時蔬與特調柚子醬汁，清爽開胃。</p>
-          <div class="price"><i class="fas fa-tag"></i> NT$ 520</div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1551183053-bf91a1d81141?q=80&w=1480&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <h3>松露野菇燉飯</h3>
-          <p>義大利陳年米與新鮮野菇慢火燉煮，起鍋前刨上黑松露，香氣濃郁。</p>
-          <div class="price"><i class="fas fa-tag"></i> NT$ 420</div>
-        </div>
-      </div>
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1480&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <h3>爐烤脆皮鴨胸</h3>
-          <p>宜蘭櫻桃鴨胸以低溫烹調再爐烤，外皮酥脆，肉質粉嫩多汁。</p>
-          <div class="price"><i class="fas fa-tag"></i> NT$ 680</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 關於我們 -->
-  <section class="about-section" id="about">
-    <div class="about-text">
-      <h2 class="section-title">關於饗宴</h2>
-      <p>饗宴餐廳創立於2016年，座落於城市靜巷內。我們相信「料理是傳遞情感的語言」，從產地到餐桌，每一個環節都注入對食材的尊重與熱情。</p>
-      <p>主廚阿宏師傅擁有超過二十年的西餐經驗，擅長以法式手法演繹台灣在地風土，讓每一口都吃得到這片土地的故事。簡約溫潤的空間，適合與家人朋友共享美好食光。</p>
-      <div class="chef-signature">— 主廚 陳志宏</div>
-    </div>
-    <div class="about-img"></div>
-  </section>
-
-  <!-- 顧客迴響 -->
-  <section class="testimonials">
-    <h2 class="section-title" style="margin-left: auto; margin-right: auto;">顧客迴響</h2>
-    <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <i class="fas fa-quote-right"></i>
-        <p>「燉飯的米芯恰到好處，松露香氣迷人，環境也很舒適，絕對會再訪！」</p>
-        <div class="name">林小姐</div>
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      </div>
-      <div class="testimonial-card">
-        <i class="fas fa-quote-right"></i>
-        <p>「鴨胸處理得非常完美，皮脆肉嫩，搭配的醬汁畫龍點睛，服務也很貼心。」</p>
-        <div class="name">張先生</div>
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-      </div>
-      <div class="testimonial-card">
-        <i class="fas fa-quote-right"></i>
-        <p>「氣氛溫馨，很適合慶生或約會，主廚的手藝令人驚豔，推薦給大家。」</p>
-        <div class="name">王小姐</div>
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 聯絡與預約 -->
-  <section class="contact-section" id="contact">
-    <div class="contact-info">
-      <h2 class="section-title" style="color: #fefcf8;">聯絡我們</h2>
-      <div class="contact-detail"><i class="fas fa-map-marker-alt"></i> 台北市大安區安和路二段 88 號</div>
-      <div class="contact-detail"><i class="fas fa-phone-alt"></i> (02) 2735-1234</div>
-      <div class="contact-detail"><i class="fas fa-envelope"></i> hello@xiangyan.com</div>
-      <div class="hours">
-        <p><span>週一至週四</span> 11:30 - 14:30 / 17:30 - 21:30</p>
-        <p><span>週五至週日</span> 11:30 - 14:30 / 17:30 - 22:00</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">※ 最後點餐時間為打烊前 60 分鐘</p>
-      </div>
-    </div>
-    <div class="reservation">
-      <h3>線上預約</h3>
-      <form id="reserveForm">
-        <div class="form-group">
-          <input type="text" placeholder="您的姓名" required>
-        </div>
-        <div class="form-group">
-          <input type="tel" placeholder="聯絡電話" required>
-        </div>
-        <div class="form-group">
-          <input type="date" placeholder="用餐日期" required>
-        </div>
-        <div class="form-group">
-          <select required>
-            <option value="" disabled selected>選擇用餐時段</option>
-            <option>午餐 11:30</option>
-            <option>午餐 12:30</option>
-            <option>晚餐 18:00</option>
-            <option>晚餐 19:00</option>
-            <option>晚餐 20:00</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <select required>
-            <option value="" disabled selected>用餐人數</option>
-            <option>2 人</option>
-            <option>3 人</option>
-            <option>4 人</option>
-            <option>5 人</option>
-            <option>6 人以上</option>
-          </select>
-        </div>
-        <button type="submit" class="btn">送出預約</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- 頁腳 -->
+  <!-- ===== 頁腳 ===== -->
   <footer>
-    <div>© 2025 饗宴餐廳 Xiang Yan Restaurant. All rights reserved.</div>
-    <div class="footer-social">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-line"></i></a>
+    <div class="footer-left">
+      <i class="fas fa-mug-hot"></i> 早安美芝城
+    </div>
+    <div class="footer-right">
+      <span>© 2025 早安美芝城 · 木新店</span>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-line"></i></a>
+      </div>
     </div>
   </footer>
 
   <script>
-    // 簡單的預約表單提示 (示範用)
-    const form = document.getElementById('reserveForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert('感謝您的預約！我們將盡快與您確認。 (此為示範表單)');
-      form.reset();
-    });
+    // ===== 菜單資料 =====
+    const menuItems = [
+      {
+        name: '招牌蛋餅',
+        price: '35',
+        desc: '手工現擀餅皮，搭配新鮮雞蛋與蔥花，外酥內軟的經典美味。',
+        category: '蛋餅',
+        tags: [{ text: '人氣', class: 'hot' }]
+      },
+      {
+        name: '起司蛋餅',
+        price: '45',
+        desc: '濃郁起司與蛋香完美融合，牽絲口感讓大人小孩都瘋狂。',
+        category: '蛋餅',
+        tags: [{ text: '新品', class: 'new' }]
+      },
+      {
+        name: '古早味肉蛋吐司',
+        price: '55',
+        desc: '醃製里肌肉片現煎，搭配半熟蛋與特調醬料，濕潤不乾柴。',
+        category: '主食',
+        tags: [{ text: '熱賣', class: 'hot' }]
+      },
+      {
+        name: '燒肉蛋餅',
+        price: '55',
+        desc: '自製燒肉片捲入蛋餅中，鹹香夠味，飽足感十足。',
+        category: '蛋餅',
+        tags: []
+      },
+      {
+        name: '蘿蔔糕',
+        price: '30',
+        desc: '港式蘿蔔糕煎至金黃酥脆，沾點醬油膏就是最道地的吃法。',
+        category: '點心',
+        tags: []
+      },
+      {
+        name: '蔥抓餅',
+        price: '35',
+        desc: '層層酥脆的蔥抓餅，加蛋加起司另計，香氣撲鼻。',
+        category: '點心',
+        tags: []
+      },
+      {
+        name: '香雞堡',
+        price: '50',
+        desc: '現炸香雞排夾入漢堡包，搭配生菜與美乃滋，爽口不油膩。',
+        category: '主食',
+        tags: []
+      },
+      {
+        name: '總匯三明治',
+        price: '65',
+        desc: '肉鬆、火腿、蛋、生菜層層堆疊，營養滿分的一份早餐。',
+        category: '主食',
+        tags: []
+      },
+      {
+        name: '冰奶茶',
+        price: '30',
+        desc: '古早味紅茶搭配奶精，甜度固定，是蛋餅的最佳拍檔。',
+        category: '飲料',
+        tags: []
+      },
+      {
+        name: '豆漿（冰/熱）',
+        price: '25',
+        desc: '非基改黃豆現磨，濃醇香，可選無糖或微糖。',
+        category: '飲料',
+        tags: [{ text: '素食', class: 'veg' }]
+      },
+      {
+        name: '紅茶（冰/熱）',
+        price: '25',
+        desc: '經典古早味紅茶，茶香濃郁，甜度適中。',
+        category: '飲料',
+        tags: []
+      },
+      {
+        name: '鮮奶茶',
+        price: '45',
+        desc: '紅茶加入新鮮鮮奶，茶香與奶香交織，順口不甜膩。',
+        category: '飲料',
+        tags: [{ text: '人氣', class: 'hot' }]
+      },
+      {
+        name: '薯餅',
+        price: '25',
+        desc: '金黃酥脆的薯餅，一口咬下卡滋作響，小朋友的最愛。',
+        category: '點心',
+        tags: []
+      },
+      {
+        name: '熱狗',
+        price: '20',
+        desc: '經典小熱狗，煎得微微焦香，簡單卻幸福。',
+        category: '點心',
+        tags: []
+      },
+      {
+        name: '蔬菜蛋餅',
+        price: '45',
+        desc: '蛋餅中加入大量高麗菜與玉米，清爽健康的新選擇。',
+        category: '蛋餅',
+        tags: [{ text: '素食', class: 'veg' }]
+      }
+    ];
 
-    // 平滑滾動 (原生 CSS 已有 scroll-behavior，但補上 JS 以確保兼容)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === "#" || href === "") return;
-        const target = document.querySelector(href);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+    // ===== 渲染菜單 =====
+    const menuGrid = document.getElementById('menuGrid');
+
+    function renderMenu(category = 'all') {
+      const filtered = category === 'all'
+        ? menuItems
+        : menuItems.filter(item => item.category === category);
+
+      menuGrid.innerHTML = filtered.map(item => `
+        <div class="menu-card" data-category="${item.category}">
+          <div class="item-header">
+            <div class="item-name">${item.name}</div>
+            <div class="item-price">$${item.price}</div>
+          </div>
+          <div class="item-desc">${item.desc}</div>
+          <div class="item-tags">
+            ${item.tags.map(tag => `<span class="tag ${tag.class}">${tag.text}</span>`).join('')}
+            <span class="tag">${item.category}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 初始渲染
+    renderMenu('all');
+
+    // ===== 分類篩選 =====
+    const filterContainer = document.getElementById('filterContainer');
+
+    filterContainer.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      // 切換 active 樣式
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // 重新渲染
+      const category = btn.dataset.category;
+      renderMenu(category);
     });
   </script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 90px; /* 避免導覽列遮擋標題 */
-    }
-  </style>
 </body>
 </html>
